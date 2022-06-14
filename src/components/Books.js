@@ -1,24 +1,32 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Form from './Form';
 import Book from './Book';
+import { addBook, removeBook } from '../redux/books/books';
 
 const Books = () => {
-  const books = [
-    {
-      id: 1,
-      title: 'Harry pooter',
-      author: 'jakline monroe',
-    },
-    {
-      id: 2,
-      title: 'Rich dad',
-      author: 'Ryosaki',
-    },
-  ];
+  const library = useSelector((state) => state.book);
+  const dispatch = useDispatch();
+
+  const AddNewBook = (e, NewBook) => {
+    e.preventDefault();
+    dispatch(addBook(NewBook));
+  };
+  const RemoveBook = (id) => {
+    dispatch(removeBook(id));
+  };
   return (
     <>
-      <Form />
-      {books.map((book) => <Book key={book.id} title={book.title} author={book.author} />)}
+      {library.map((book) => (
+        <Book
+          title={book.title}
+          author={book.author}
+          id={book.id}
+          key={book.id}
+          RemoveBook={RemoveBook}
+        />
+      ))}
+      <Form AddNewBook={AddNewBook} />
     </>
   );
 };

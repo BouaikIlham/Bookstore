@@ -1,7 +1,28 @@
 const ADD_BOOK = 'bookstore/books/ADD_BOOK ';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOKs';
 
-const initialState = [];
+const initialState = [
+  {
+    title: 'The Hunger Games',
+    author: 'Suzanne Collins',
+    id: 1,
+  },
+  {
+    title: 'Dune',
+    author: 'Frank Herbert',
+    id: 2,
+  },
+  {
+    title: 'Capital in Twenty-First Century',
+    author: 'Suzanne Collins',
+    id: 3,
+  },
+  {
+    title: 'What the wise man fear',
+    author: 'William SheckSpear',
+    id: 4,
+  },
+];
 
 export const addBook = (NewBook) => ({
   type: ADD_BOOK,

@@ -1,32 +1,25 @@
-import React from 'react';
+/* eslint-disable max-len */
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Form from './Form';
 import Book from './Book';
-import { addBook, removeBook } from '../redux/books/books';
+import { deleteBook, fetchBook } from '../redux/books/books';
 
 const Books = () => {
-  const library = useSelector((state) => state.book);
+  const library = useSelector((state) => state.Bookreducer);
   const dispatch = useDispatch();
-
-  const AddNewBook = (e, NewBook) => {
-    e.preventDefault();
-    dispatch(addBook(NewBook));
-  };
-  const RemoveBook = (id) => {
-    dispatch(removeBook(id));
+  useEffect(() => {
+    dispatch(fetchBook());
+  }, []);
+  const handleRemove = (Id) => {
+    dispatch(deleteBook(Id));
   };
   return (
     <>
       {library.map((book) => (
-        <Book
-          title={book.title}
-          author={book.author}
-          id={book.id}
-          key={book.id}
-          RemoveBook={RemoveBook}
-        />
+        <Book title={book.title} author={book.author} key={book.item_id} handleRemove={() => handleRemove(book.item_id)} />
       ))}
-      <Form AddNewBook={AddNewBook} />
+      <Form />
     </>
   );
 };

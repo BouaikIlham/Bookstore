@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,500&family=Roboto:wght@300;400&display=swap');
 
 .navBar {
-  width: 90%;
+  width: 102%;
   height: 80px;
   padding: 0 5%;
   background-color: #fff;
@@ -56,15 +56,15 @@
 
 /******************** Books ******************/
 .books-container {
-  width: 100%;
+  width: 110%;
   padding: 2rem 0;
 }
 
 .book-container {
-  width: calc(90% - 40px);
-  margin: 0 5% 2rem 5%;
+  width: calc(80% - 64px) !important;
+  margin: 0 5% 2rem 11%;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fafafa;
   border: 1px #e8e8e8 solid;
   border-radius: 3px;
   display: grid;
@@ -115,7 +115,7 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.87rem;
   font-weight: normal;
-  padding: 10px 30px;
+  padding: 4px 38px;
   margin-top: 1.5rem;
   border-radius: 3px;
 }
@@ -173,6 +173,7 @@
 
 #form-container {
   padding: 10px;
+  margin-left: 130px;
 }
 
 .Add-form {
@@ -230,4 +231,8 @@ select {
   padding: 0.801rem 1.188rem 0.886rem 1.375rem;
   border-radius: 3px;
   border: 1px solid transparent;
+}
+
+.percentage {
+  width: 40% !important;
 }
